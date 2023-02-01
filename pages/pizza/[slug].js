@@ -5,9 +5,11 @@ import Image from "next/image";
 import LeftArrow from "../../assets/arrowLeft.png";
 import RightArrow from "../../assets/arrowRight.png";
 import { useState } from "react";
-import Link from "next/link";
+import { useStore } from "../../store/store";
+import toast, {Toaster} from "react-hot-toast";
+
+
 export default function Pizza({ pizza }) {
-  console.log(pizza);
   const src = urlFor(pizza.image).url();
   const [Size, setSize] = useState(0);
   const [Quantity, setQuantity] = useState(1);
@@ -18,6 +20,12 @@ export default function Pizza({ pizza }) {
           : Quantity === 1
           ? null
           : setQuantity((prev) => prev - 1);
+    }
+    // add to cart 
+    const addPizza = useStore((state)=> state.addPizza);
+    const addToCart = ()=>{
+      addPizza({...pizza, price: pizza.price[Size], quantity: Quantity, size: Size});
+      toast.success("Added to Cart")
     }
   return (
     <Layout>
@@ -73,8 +81,8 @@ export default function Pizza({ pizza }) {
                 objectFit="contain"
                 height={20}
                 width={20}
-                onClick={()=>handleQuantity("dec")}
-                />
+                onClick={() => handleQuantity("dec")}
+              />
               <span>{Quantity}</span>
               <Image
                 src={RightArrow}
@@ -82,12 +90,15 @@ export default function Pizza({ pizza }) {
                 objectFit="contain"
                 height={20}
                 width={20}
-                onClick={()=>handleQuantity("incr")}
-                />
+                onClick={() => handleQuantity("incr")}
+              />
             </div>
           </div>
-          <div className={`btn ${css.btn}`}>Add to Cart</div>
+          <div className={`btn ${css.btn}`} onClick={addToCart}>
+            Add to Cart
+          </div>
         </div>
+        <Toaster/>
       </div>
     </Layout>
   );
