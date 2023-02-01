@@ -1,0 +1,91 @@
+.container {
+  display: flex;
+  padding: 2rem;
+  gap: 5rem;
+  margin-top: 1.5rem;
+}
+.imageWrapper {
+  height: 25rem;
+  width: 35%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+}
+
+.imageWrapper > span > img:hover {
+  transform: scale(1.1);
+}
+
+.rightSide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  justify-content: space-between;
+  font-size: 2.2rem;
+}
+
+.rightSide > :nth-child(2) {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: var(--gray);
+}
+.rightSide > :nth-child(3) {
+  font-size: 2rem;
+}
+
+.size {
+  display: flex;
+  gap: 3rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.diffSizes {
+  display: flex;
+  gap: 0.6rem;
+  font-weight: 500;
+  color: var(--themeRed);
+  font-size: 1rem;
+}
+
+.diffSizes > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 1.5rem;
+  border: 2px solid var(--themeRed);
+  border-radius: 2rem;
+}
+
+.diffSizes > div:hover {
+  background-color: var(--themeRed);
+  color: white;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.quantity {
+  display: flex;
+  font-size: 1.6rem;
+  font-weight: 600;
+  gap: 3rem;
+}
+
+.counter {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  font-weight: normal;
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.selected {
+  background-color: var(--themeRed);
+  color: white;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
