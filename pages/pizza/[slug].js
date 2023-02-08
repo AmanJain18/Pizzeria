@@ -25,7 +25,7 @@ export default function Pizza({ pizza }) {
     const addPizza = useStore((state)=> state.addPizza);
     const addToCart = ()=>{
       addPizza({...pizza, price: pizza.price[Size], quantity: Quantity, size: Size});
-      toast.success("Added to Cart")
+      toast.success("Pizza Added to Cart")
     }
   return (
     <Layout>

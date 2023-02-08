@@ -56,13 +56,13 @@
   padding: 0.3rem 1.5rem;
   border: 2px solid var(--themeRed);
   border-radius: 2rem;
+  cursor: pointer;
 }
 
 .diffSizes > div:hover {
   background-color: var(--themeRed);
   color: white;
   transition: all 0.3s ease-in-out;
-  cursor: pointer;
 }
 
 .quantity {
@@ -81,11 +81,11 @@
   font-weight: normal;
   font-size: 1rem;
   padding: 0.5rem 1.5rem;
+  cursor: pointer;
 }
 
 .selected {
   background-color: var(--themeRed);
   color: white;
   transition: all 0.3s ease-in-out;
-  cursor: pointer;
 }

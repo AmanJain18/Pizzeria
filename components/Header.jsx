@@ -7,8 +7,9 @@ import Link from 'next/link';
 
 export default function Header () {
     // State in terminal 
-    const currentstate = useStore((state) => state);
-    // console.log(currentstate);
+    const currentstate = useStore((state) => state.cart);
+    console.log(currentstate);
+    const total = () => currentstate.pizzas.reduce((a, b) => a + b.quantity, 0);
     const items = useStore((state) => state.cart.pizzas.length)
     return (
         <div className={css.header}>
@@ -30,7 +31,7 @@ export default function Header () {
                     <div className={css.cart}>
                         <UilShoppingBag size={35} color="#2E2E2E" />
                         <div className={css.badge}>
-                            {items}
+                            {total()}
                         </div>
                     </div>
                 </Link>
